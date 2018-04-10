@@ -139,7 +139,7 @@ public class Report<T> {
 			System.out.println(field.getName());
 			if (field.isAnnotationPresent(RecordElement.class)) {
 				RecordElement el = field.getAnnotation(RecordElement.class);
-				if (el.include()) {
+				if (!el.include()) {
 					continue;
 				}
 				fieldName = el.name();
