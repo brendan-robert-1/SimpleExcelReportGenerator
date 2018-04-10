@@ -134,7 +134,9 @@ public class Report<T> {
 	private List<String> getOrderdFieldNames(T t) {
 		List<String> names = new ArrayList<>();
 		for (Field field : t.getClass().getDeclaredFields()) {
+			field.setAccessible(true);
 			String fieldName = "Unknown";
+			System.out.println(field.getName());
 			if (field.isAnnotationPresent(RecordElement.class)) {
 				RecordElement el = field.getAnnotation(RecordElement.class);
 				if (el.include()) {
