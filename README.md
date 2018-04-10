@@ -8,7 +8,7 @@ XSSFWorkbook excelReport = report.getXSSFReport();
 report.writeReportToFile(excelReport, new File("workbook.xlsx"));
 ```
 
-Here we have some collection of classes that represent our data structure, we create a ```Report<DemoRecord>``` and we pass in the records and a name for our sheet to the constructor. We can then retrieve our POI ```XSSFWorkbook``` object and write it to a file. This will formatted with the default formatter and produce a sheet like so:
+Here we have some collection of classes that represent our data structure, we create a ```Report<DemoRecord>``` and we pass in the records and a name for our sheet to the constructor. We can then retrieve our POI ```XSSFWorkbook``` object and write it to a file. This will be formatted with the default formatter and produce a sheet like so:
 
 ![alt text](https://i.imgur.com/Av7AKt0.png)
 
