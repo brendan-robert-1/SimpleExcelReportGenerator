@@ -31,7 +31,7 @@ No annotations are required to create a `Report<DemoRecord>`. The default behavi
 
 The style as seen above is default if none are provided. If instead you wish to define your own style you may create a custom `ReportStyleFunction` and pass it into
 ```java 
-report.getXSSFReport(ReportStyleFunction fx)
+report.writeReportToFile(style, file);
 ``` 
 
 
