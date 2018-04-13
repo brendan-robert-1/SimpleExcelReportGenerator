@@ -136,7 +136,6 @@ public class Report<T> {
 		for (Field field : t.getClass().getDeclaredFields()) {
 			field.setAccessible(true);
 			String fieldName = "Unknown";
-			System.out.println(field.getName());
 			if (field.isAnnotationPresent(RecordElement.class)) {
 				RecordElement el = field.getAnnotation(RecordElement.class);
 				if (!el.include()) {
@@ -181,19 +180,41 @@ public class Report<T> {
 
 	private static String upperFirstChar(String s) {
 		String lower = s.toLowerCase();
-		String finalStr = lower.substring(0, 1).toUpperCase() + lower.substring(1);
-		return finalStr;
+		return lower.substring(0, 1).toUpperCase() + lower.substring(1);
 	}
 
 
 
 	public void writeReportToFile(XSSFWorkbook workbook, File file) {
+		writeReportToFile(workbook, new DefaultStyleFunction(), file);
+	}
+
+
+
+	public void writeReportToFile(XSSFWorkbook workbook, ReportStyleFunction style, File file) {
 		try {
-			System.out.println("Writing file to " + file.getAbsolutePath());
 			OutputStream os = new FileOutputStream(file);
 			workbook.write(os);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+
+
+	public void writeReportToFile(ReportStyleFunction style, File file) {
+		XSSFWorkbook workbook = getXSSFReport();
+		try {
+			OutputStream os = new FileOutputStream(file);
+			workbook.write(os);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+	public void writeReportToFile(File file) {
+		writeReportToFile(new DefaultStyleFunction(), file);
 	}
 }

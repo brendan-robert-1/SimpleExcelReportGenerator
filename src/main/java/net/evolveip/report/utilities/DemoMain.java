@@ -7,8 +7,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 /**
  * @author brobert
  *
@@ -24,7 +22,6 @@ public class DemoMain {
 		recs.add(rec3);
 
 		Report<DemoRecord> report = new Report<>(recs, "Testing Record");
-		XSSFWorkbook excelReport = report.getXSSFReport(new DefaultStyleFunction());
-		report.writeReportToFile(excelReport, new File("workbook.xlsx"));
+		report.writeReportToFile(new File("workbook.xlsx"));
 	}
 }
