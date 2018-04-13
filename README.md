@@ -4,11 +4,10 @@ This project is a thin wrapper on Apache POI, a library designed for creating ex
 ```java
 List<DemoRecord> records = getData();  //where getData() is some method that gets whatever data we want
 Report<DemoRecord> report = new Report<>(records, "Testing Record");
-XSSFWorkbook excelReport = report.getXSSFReport();
-report.writeReportToFile(excelReport, new File("workbook.xlsx"));
+report.writeReportToFile(new File("workbook.xlsx"));
 ```
 
-Here we have some collection of classes that represent our data structure, we create a ```Report<DemoRecord>``` and we pass in the records and a name for our sheet to the constructor. We can then retrieve our POI ```XSSFWorkbook``` object and write it to a file. This will be formatted with the default formatter and produce a sheet like so:
+Here we have some collection of classes that represent our data structure, we create a ```Report<DemoRecord>``` and we pass in the records and a name for our sheet to the constructor. We can then write our report to a file. This will be formatted with the default formatter and produce a sheet like so:
 
 ![alt text](https://i.gyazo.com/39b6e245b01e7d53a526f59ac281f8be.png)
 
