@@ -10,7 +10,7 @@ report.writeReportToFile(excelReport, new File("workbook.xlsx"));
 
 Here we have some collection of classes that represent our data structure, we create a ```Report<DemoRecord>``` and we pass in the records and a name for our sheet to the constructor. We can then retrieve our POI ```XSSFWorkbook``` object and write it to a file. This will be formatted with the default formatter and produce a sheet like so:
 
-![alt text](https://i.imgur.com/Av7AKt0.png)
+![alt text](https://i.gyazo.com/39b6e245b01e7d53a526f59ac281f8be.png)
 
 The ```DemoRecord``` is our record type that has fields that like:
 
